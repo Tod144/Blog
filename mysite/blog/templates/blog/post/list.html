@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+{%block title%} Мой блог {% endblock %}
+{%block content%} 
+{%for post in posts%}
+<h2>
+    <a href= "{%url "blog:post_detail" post.id%}">
+    {{post.title}}
+    </a>
+</h2>
+<p class = "date">
+    Опубликовано {{post.puplish}} автором {{post.author}}
+
+</p>
+{%endfor%}
+{%endblock%}
