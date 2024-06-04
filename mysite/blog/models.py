@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 from django.contrib.auth.models import User
 
@@ -7,6 +8,8 @@ class PublishedManager(models.Manager):
         return super().get_queryset().filter(status = Post.Status.PUBLISHED)
 
 class Post(models.Model):
+    def get_absolute_url(self):
+        return reverse('blog:post_detail', args = [self.id])
 
     class Status(models.TextChoices): #сокращенный и полный варик в выпадающем списке
         DRAFT = "DF", "Draft" 
