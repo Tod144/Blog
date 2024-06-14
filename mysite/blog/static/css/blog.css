@@ -1,7 +1,9 @@
 body { 
+    
     margin:0;
     padding:0;
-    font-family:helvetica, sans-serif; 
+    font-family:helvetica, sans-serif;
+    background-color: #252236;
 }
 
 a { 
@@ -17,21 +19,36 @@ h1 {
 
 h2 {
     font-weight:normal;
+    color: #75fff8;
+
+    margin:30px 0 0;
+}
+h3 {
+    font-weight:normal;
+    color: #f6ff00;
+    font-size: 40px; /* Размер текста внутри полей формы */
     margin:30px 0 0;
 }
 
 #content { 
     float:left;
+    overflow-wrap: break-word;
     width:60%;
     padding:0 0 0 30px; 
+    color: #ffffff;
+    padding-bottom: 20px; /* Отступ снизу для каждого поста */
+    margin-bottom: 20px; /* Отступ между постами */
+    border-bottom: 1px solid #ccc; /* Линия разделения постов */
 }
 
 #sidebar { 
     float:right;
+    color: #ebff53;
     width:30%;
     padding:10px;
-    background:#efefef; 
-    height:100%;
+    background:#5068f2; 
+    border-radius: 100px 0 0 100px; /* Закругленные углы только слева */
+    text-align: center; /* Выравнивает текст по центру */
 }
 
 p.date { 
@@ -81,12 +98,35 @@ input[type=submit] {
 /* comments */
 .comment {
     padding:10px;
+    background-color: #dc71dc;
+    color: #ffffff;
 }
 .comment:nth-child(even) {
-    background:#efefef;
+    background:#18154a;
 }
 .comment .info {
     font-weight:bold;
     font-size:12px;
-    color:#666;
+    color:#59c0e2;
+}
+
+.comment_form {
+    background-color: #d21414; /* Цвет фона формы */
+    color: #f30505; /* Цвет текста в форме */
+}
+
+.comment_form label {
+    display: block;
+    margin-bottom: 10px;
+    color: #4fd45f; /* Цвет текста меток */
+}
+
+.comment_form input, .comment_form textarea {
+    width: 30%;
+    padding: 8px; /* Внутренние отступы внутри полей формы */
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    background-color: #8d8d8d; /* Цвет фона полей */
+    color: #ffffff; /* Цвет текста в полях */
+    font-size: 20px; /* Размер текста внутри полей формы */
 }

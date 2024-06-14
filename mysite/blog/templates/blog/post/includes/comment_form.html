@@ -1,0 +1,12 @@
+<h2>Добавтье новый комментарий</h2>
+<form class="comment_form" action = "{%url "blog:post_comment" post.id %}" method = "post">
+    {{form.as_p}}
+    {% csrf_token %}
+    <p><input type = "submit" value = "Добавить комментарий"></p>
+
+
+
+
+
+
+</form>

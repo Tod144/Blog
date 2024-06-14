@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.utils import timezone
 from django.contrib.auth.models import User
 
+
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(status = Post.Status.PUBLISHED)
@@ -27,7 +28,7 @@ class Post(models.Model):
     objects = models.Manager()
     published = PublishedManager()
 
-    def ___str__(self):
+    def __str__(self):
         return self.title
     
     class Meta:
@@ -35,3 +36,22 @@ class Post(models.Model):
         indexes = [
             models.Index(fields=['-publish'])
         ]
+
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name= "comments" )
+    name = models.CharField(max_length= 80)
+    email = models.EmailField()
+    body = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=False)
+    class Meta:
+        ordering = ['created']
+        indexes = [models.Index(fields=['created']),]
+    def __str__(self):
+        return f"Прокоментировал пользователь {self.name} на пост {self.post}"
+
+
+    
