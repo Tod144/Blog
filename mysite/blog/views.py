@@ -12,11 +12,7 @@ from django.contrib.postgres.search import SearchVector
 
 
 
-def post_searh(request):
-    form = SearchForms()
-    query = None
-    results = []
-    if 
+    
 
 
 @never_cache
